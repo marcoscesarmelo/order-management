@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Ordem</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link para o arquivo CSS -->
+</head>
+<body>
+
+    <h1 style="text-align: center;">Criar Nova Ordem</h1>
+    
+    <form id="orderForm">
+        <table>
+            <tr>
+                <td><label for="symbol">Símbolo:</label></td>
+                <td>
+                    <select id="symbol" name="symbol">
+                        <option value="PETR4">PETR4</option>
+                        <option value="VALE3">VALE3</option>
+                        <option value="VIIA4">VIIA4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="side">Lado:</label></td>
+                <td>
+                    <select id="side" name="side">
+                        <option value="Compra">Compra</option>
+                        <option value="Venda">Venda</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="quantity">Quantidade:</label></td>
+                <td><input type="number" id="quantity" name="quantity"></td>
+            </tr>
+            <tr>
+                <td><label for="price">Preço:</label></td>
+                <td><input type="number" id="price" name="price" step="0.01"></td>
+            </tr>
+        </table>
+
+        <div class="button-container">
+            <button type="submit">Criar Ordem</button>
+        </div>
+    </form>
+
+    <script src="js/script.js"></script> <!-- Link para o arquivo JS -->
+</body>
+</html>

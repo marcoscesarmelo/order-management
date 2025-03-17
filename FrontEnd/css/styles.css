@@ -1,0 +1,28 @@
+/* Estilo para a tabela */
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para o formulário */
+form {
+    width: 60%;
+    margin: 20px auto;
+}
+label {
+    font-weight: bold;
+}
+
+/* Estilo para o botão */
+.button-container {
+    text-align: center;
+}
