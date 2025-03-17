@@ -7,7 +7,7 @@ namespace OrderGenerator.Services
     {
         private static List<Order> _orders = new List<Order>();
 
-        public void AddOrder(Order order)
+        public async Task AddOrder(Order order)
         {
             _orders.Add(order);
             new FixUtil().SendOrder(order);

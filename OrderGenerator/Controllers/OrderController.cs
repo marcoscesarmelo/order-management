@@ -17,7 +17,7 @@ namespace OrderGenerator.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateOrder([FromBody] Order order)
+        public async Task<ActionResult> CreateOrderAsync([FromBody] Order order)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace OrderGenerator.Controllers
                 {
                     return BadRequest("Ordem inválida.");
                 }
-                _orderService.AddOrder(order);
+                await _orderService.AddOrder(order);
                 return Ok(new { message = "Ordem criada com sucesso!" });
             }
             catch(OrderAccumulatorException oaexc) 

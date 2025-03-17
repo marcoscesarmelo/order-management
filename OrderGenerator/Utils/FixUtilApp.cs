@@ -9,7 +9,7 @@ namespace Utils
     {
         private Session? _session = null;
 
-        public QuickFix.FIX44.NewOrderSingle? sampleMessage;
+        public QuickFix.FIX44.NewOrderSingle sampleMessage;
 
         public static char orderStatus = ' ';
 

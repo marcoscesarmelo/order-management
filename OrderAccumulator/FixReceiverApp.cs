@@ -51,6 +51,7 @@ namespace SimpleAcceptor
                     {
                         allSymbols[newOrderMessage.Symbol.Value].Exposition += defineNewLimit(newOrderMessage);
                     }
+  
                 }
             }
             catch(Exception e) 
