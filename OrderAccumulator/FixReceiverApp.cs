@@ -24,7 +24,7 @@ namespace SimpleAcceptor
         public void fillSymbols() 
         {
             allSymbols.Add("PETR4", new StockSymbol { BusinessCode = "PETR4", Exposition = 0, Limit = 100000000m });
-            allSymbols.Add("VALE3", new StockSymbol { BusinessCode = "VALE3", Exposition = 0, Limit = 1000m });
+            allSymbols.Add("VALE3", new StockSymbol { BusinessCode = "VALE3", Exposition = 0, Limit = 100000000m });
             allSymbols.Add("VIIA4", new StockSymbol { BusinessCode = "VIIA4", Exposition = 0, Limit = 100000000m });
         }        
   
