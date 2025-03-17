@@ -8,8 +8,6 @@ namespace SimpleAcceptor
     class Program
     {
 
-        private static readonly ILogger<FixReceiverApp> _logger;
-
         public Program() 
         {
             using var loggerFactory = LoggerFactory.Create(builder =>

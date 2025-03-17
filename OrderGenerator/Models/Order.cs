@@ -6,11 +6,11 @@ namespace OrderGenerator.Models
     {
         [Required(ErrorMessage = "Símbolo é obrigatório")]
         [RegularExpression(@"^(PETR4|VALE3|VIIA4)$", ErrorMessage = "Símbolo inválido. Escolha entre PETR4, VALE3 ou VIIA4.")]
-        public string Symbol { get; set; }
+        public string? Symbol { get; set; }
 
         [Required(ErrorMessage = "Lado é obrigatório")]
         [RegularExpression(@"^(Compra|Venda)$", ErrorMessage = "Lado inválido. Escolha entre Compra ou Venda.")]
-        public string Side { get; set; }
+        public string? Side { get; set; }
 
         [Required(ErrorMessage = "Quantidade é obrigatória")]
         [Range(1, 99999, ErrorMessage = "Quantidade deve ser um valor positivo menor que 100.000.")]

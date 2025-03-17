@@ -2,7 +2,6 @@ using QuickFix;
 using QuickFix.Fields;
 using OrderAccumulator.Models;
 using Microsoft.Extensions.Logging;
-using Microsoft.VisualBasic;
 
 namespace SimpleAcceptor    
 {
@@ -47,8 +46,6 @@ namespace SimpleAcceptor
                         exReport.LeavesQty = new LeavesQty(1),
                         new CumQty(newOrderMessage.OrderQty.Value),
                         new AvgPx(newOrderMessage.Price.Value));
-                    Console.WriteLine("Status: " + exReport.OrdStatus.Value);
-                    Console.WriteLine("Exposition: " + allSymbols[newOrderMessage.Symbol.Value].Exposition); 
                     Session.SendToTarget(exReport, sessionID);
                     if(isOrderValid) 
                     {
@@ -66,8 +63,6 @@ namespace SimpleAcceptor
 
         public Decimal calculateOrderAmount(QuickFix.FIX44.NewOrderSingle order)
         {
-            Console.Write(order.Price.Value);
-            Console.Write(order.OrderQty.Value);
             return order.Price.Value * order.OrderQty.Value;
         }
 
