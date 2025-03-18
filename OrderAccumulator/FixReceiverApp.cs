@@ -42,14 +42,23 @@ namespace SimpleAcceptor
                         isOrderValid ? new ExecType(ExecType.NEW) : new ExecType(ExecType.REJECTED),
                         isOrderValid ? new OrdStatus(OrdStatus.NEW) :  new OrdStatus(OrdStatus.REJECTED),
                         exReport.Symbol = newOrderMessage.Symbol,
-                        new Side(Side.BUY),
+                        new Side(newOrderMessage.Side.Value),
                         exReport.LeavesQty = new LeavesQty(1),
                         new CumQty(newOrderMessage.OrderQty.Value),
                         new AvgPx(newOrderMessage.Price.Value));
                     Session.SendToTarget(exReport, sessionID);
-                    if(isOrderValid) 
+                    if(isOrderValid && newOrderMessage.Side.Value == Side.BUY)
                     {
                         allSymbols[newOrderMessage.Symbol.Value].Exposition += defineNewLimit(newOrderMessage);
+                    }
+                    else if (newOrderMessage.Side.Value == Side.SELL)
+                    {
+                        allSymbols[newOrderMessage.Symbol.Value].Exposition -= defineNewLimit(newOrderMessage);
+                    }
+
+                    if(allSymbols[newOrderMessage.Symbol.Value].Exposition < 0)
+                    {
+                        allSymbols[newOrderMessage.Symbol.Value].Exposition = 0;
                     }
   
                 }
