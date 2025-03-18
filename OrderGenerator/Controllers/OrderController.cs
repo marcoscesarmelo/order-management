@@ -17,7 +17,7 @@ namespace OrderGenerator.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateOrderAsync([FromBody] Order order)
+        public async Task<IActionResult> CreateOrder([FromBody] Order order)
         {
             try
             {
@@ -25,14 +25,14 @@ namespace OrderGenerator.Controllers
                 {
                     return BadRequest("Ordem inválida.");
                 }
-                await _orderService.AddOrder(order);
+                _orderService.AddOrder(order);
                 return Ok(new { message = "Ordem criada com sucesso!" });
             }
-            catch(OrderAccumulatorException oaexc) 
+            catch (OrderAccumulatorException oaexc)
             {
                 return BadRequest(new { message = oaexc.Message });
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return StatusCode(500, e);
             }

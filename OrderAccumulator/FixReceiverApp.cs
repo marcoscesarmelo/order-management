@@ -58,8 +58,6 @@ namespace SimpleAcceptor
             {
                 _logger.LogInformation("Erro ao tratar mensagem: " + e.Message);
             }
-
-
         }
 
         public Decimal calculateOrderAmount(QuickFix.FIX44.NewOrderSingle order)
@@ -88,7 +86,7 @@ namespace SimpleAcceptor
             return true;
 
         }
-
+        
         public void ToApp(Message message, SessionID sessionID)
         {
             _logger.LogInformation("ToApp: " + message);

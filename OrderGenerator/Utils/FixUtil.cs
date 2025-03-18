@@ -12,8 +12,19 @@ namespace Fix
 {
     public class FixUtil
     {
-
         public const char STATUS_REJECTED = '8';
+
+        private readonly ILogger<FixUtil> _logger;
+
+        public FixUtil()
+        {
+            using var loggerFactory = LoggerFactory.Create(builder =>
+            {
+                builder.AddConsole();
+            });
+
+            _logger = loggerFactory.CreateLogger<FixUtil>();
+        }
 
         public void SendOrder(Order order)
         {
@@ -36,13 +47,13 @@ namespace Fix
                         throw new OrderAccumulatorException("Excedido limite de exposições para símbolo");
                     }
                 }
-                catch(OrderAccumulatorException oaexc)
+                catch (OrderAccumulatorException)
                 {
-                    throw oaexc;
+                    throw;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    _logger.LogInformation(e.Message);
                 }
         }
 

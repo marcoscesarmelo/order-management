@@ -7,11 +7,11 @@ namespace OrderGenerator.Services
     {
         private static List<Order> _orders = new List<Order>();
 
-        public async Task AddOrder(Order order)
+        public void AddOrder(Order order)
         {
             _orders.Add(order);
             new FixUtil().SendOrder(order);
         }
 
-      }
+    }
 }
