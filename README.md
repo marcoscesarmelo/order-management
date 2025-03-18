@@ -19,10 +19,9 @@ O **OrderAccumulator** recebe as ordens e calcula a exposição financeira por s
 
 Exposição financeira = somatório de (preço * quantidade executada) de cada ordem de compra - somatório de (preço * quantidade executada) de cada ordem de venda
 
-markdown
-Copiar
-
 Ou seja, as ordens de **compra** aumentam a exposição, enquanto as ordens de **venda** diminuem a exposição.
+
+A figura a seguir mostra a arquitetura em alto nível da aplicação: ![arch](FrontEnd/img/arch.png)
 
 #### Regras do OrderAccumulator:
 - O **OrderAccumulator** possui um limite interno de R$ 100.000.000 (cem milhões) por símbolo.
@@ -96,25 +95,32 @@ Ou seja, as ordens de **compra** aumentam a exposição, enquanto as ordens de *
 
 ## Requisitos
 
-- **Linguagem**: C#
-- **Protocolo**: FIX versão 4.4 (QuickFix)
+- **Linguagem**: C# (.Net Framework 8).
+- **Protocolo**: FIX versão 4.4 (QuickFix).
 - **Biblioteca**: [QuickFix.NET](https://quickfixn.org/) & [Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) 
 - **Frontend**: HTML + JS + CSS
 
-## Como Rodar
+## Como Executar na Estação de Trabalho
 
 ### 1. **OrderGenerator**
 1. Clone o repositório.
-2. Abra a solução em sua IDE de Preferência
-3. Execute a aplicação.
+2. Certifique-se que a biblioteca QuickFix/n esteja em seu projeto, assim como a biblioteca Microsoft Extensions Logging.
+3. Ao adicionar a biblioteca, uma série de arquivos são incorporados ao teu projeto, organizados na pasta quickfixn-v1.13.0.
+4. Certifique-se que a pasta quickfixn-v1.13.0 esteja na raíz do projeto, no mesmo nível das pastas "OrderGenerator" e "OrderAccumulator"
+5. Abra a solução em sua IDE de Preferência.
+6. Compile e execute a aplicação.
 
 ### 2. **OrderAccumulator**
-4. Abra a solução em sua IDE de Preferência
-5. Execute a aplicação.
+7. Abra a solução em sua IDE de Preferência.
+8. Ao realizar os passos 2 a 4, não será necessário repetir. Vale ressaltar que "OrderAccumulator" também depende da biblioteca QuickFix/n e da Microsoft Extensions Logging.
+9. Abra a solução em sua IDE de Preferência.
+10. Compile e execute a aplicação.
 
 ### 2. **FrontEnd**
-6. Clique na página index-html.
-3. Preencha os campos corretamente
-4. Clique em "Criar Order"
+11. Clique na página index-html, incorporada a este projeto.
+12. Certifique-se que as duas aplicações ("OrderGenerator" e "OrderAccumulator") estejam em execução.
+13. Preencha os campos corretamente.
+14. Clique em "Criar Order".
+15. Confira o resultado.
 
 ---
